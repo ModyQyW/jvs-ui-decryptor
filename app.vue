@@ -35,7 +35,9 @@ const decryptKey = computed(() =>
 
 const handleDecrypt = () => {
   const params = ["content"];
+  console.log("encrypted", encrypted.value);
   const parsed = JSON.parse(encrypted.value);
+  console.log("parsed", parsed);
   params.forEach((param) => {
     let data = CryptoJS.enc.Base64.stringify(
       CryptoJS.enc.Hex.parse(parsed[param])
@@ -48,7 +50,12 @@ const handleDecrypt = () => {
     });
     parsed[param] = decrypted.toString(CryptoJS.enc.Utf8);
   });
-  decrypted.value = JSON.parse(parsed.content.replaceAll("\b", ""));
+  console.log("typeof parsed.content", typeof parsed.content);
+  console.log("parsed.content", parsed.content);
+  const lastIndex = parsed.content.lastIndexOf("}");
+  parsed.content = JSON.parse(parsed.content.slice(0, lastIndex + 1));
+  console.log("updated parsed.content", parsed.content);
+  decrypted.value = parsed;
 };
 </script>
 
