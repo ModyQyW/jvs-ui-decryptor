@@ -1,0 +1,28 @@
+{
+  "name": "jvs-ui-decryptor",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "postinstall": "nuxt prepare",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^2.15.2",
+    "crypto-js": "^4.2.0",
+    "js-base64": "^3.7.7",
+    "json-editor-vue": "^0.14.0",
+    "nuxt": "^3.11.2",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@iconify-json/heroicons": "^1.1.20",
+    "@iconify-json/simple-icons": "^1.1.99",
+    "@nuxtjs/device": "^3.1.1",
+    "@types/crypto-js": "^4.2.2"
+  },
+  "packageManager": "pnpm@9.0.1"
+}
