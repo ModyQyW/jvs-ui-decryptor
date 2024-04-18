@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { version } from "@/package.json";
 import JsonEditorVue from "json-editor-vue";
 import "vanilla-jsoneditor/themes/jse-theme-dark.css";
 import { Base64 } from "js-base64";
@@ -64,7 +65,10 @@ const handleDecrypt = () => {
     <header
       class="py-8 flex justify-between items-center sticky z-50 bg-white dark:bg-gray-900 top-0"
     >
-      <h1 class="text-4xl">JVS-UI Decryptor</h1>
+      <div>
+        <h1 class="text-4xl">JVS-UI Decryptor</h1>
+        <p>v{{ version }}</p>
+      </div>
       <UButton
         color="gray"
         variant="ghost"
