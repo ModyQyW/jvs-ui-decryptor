@@ -37,28 +37,28 @@ const decryptKey = computed(() =>
 
 const handleDecrypt = () => {
   try {
-  const params = ["content"];
+    const params = ["content"];
     consola.info("encrypted", encrypted.value);
-  const parsed = JSON.parse(encrypted.value);
+    const parsed = JSON.parse(encrypted.value);
     consola.info("parsed", parsed);
-  params.forEach((param) => {
-    let data = CryptoJS.enc.Base64.stringify(
-      CryptoJS.enc.Hex.parse(parsed[param])
-    );
-    let iv = CryptoJS.enc.Utf8.parse(decryptKey.value);
-    let decrypted = CryptoJS.AES.decrypt(data, iv, {
-      iv,
-      mode: CryptoJS.mode.CBC,
-      padding: CryptoJS.pad.ZeroPadding,
+    params.forEach((param) => {
+      let data = CryptoJS.enc.Base64.stringify(
+        CryptoJS.enc.Hex.parse(parsed[param])
+      );
+      let iv = CryptoJS.enc.Utf8.parse(decryptKey.value);
+      let decrypted = CryptoJS.AES.decrypt(data, iv, {
+        iv,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.ZeroPadding,
+      });
+      parsed[param] = decrypted.toString(CryptoJS.enc.Utf8);
     });
-    parsed[param] = decrypted.toString(CryptoJS.enc.Utf8);
-  });
     consola.info("typeof parsed.content", typeof parsed.content);
     consola.info("parsed.content", parsed.content);
-  const lastIndex = parsed.content.lastIndexOf("}");
-  parsed.content = JSON.parse(parsed.content.slice(0, lastIndex + 1));
+    const lastIndex = parsed.content.lastIndexOf("}");
+    parsed.content = JSON.parse(parsed.content.slice(0, lastIndex + 1));
     consola.info("updated parsed.content", parsed.content);
-  decrypted.value = parsed;
+    decrypted.value = parsed;
   } catch (error) {
     window.alert("❌ Something went wrong! Please check console.");
     consola.error(error);
@@ -69,7 +69,7 @@ const handleDecrypt = () => {
 <template>
   <UContainer class="container mx-auto">
     <header
-      class="py-8 flex justify-between items-center sticky z-50 bg-white dark:bg-gray-900 top-0"
+      class="py-8 flex justify-between items-center sticky z-50 bg-[rgb(var(--ui-background))] top-0"
     >
       <div>
         <h1 class="text-4xl">JVS-UI Decryptor</h1>
@@ -84,7 +84,7 @@ const handleDecrypt = () => {
     </header>
     <section>
       <label for="encrypted">Encrypted Text indicating a object:</label>
-      <UTextarea id="encrypted" v-model="encrypted" :rows="8" />
+      <UTextarea id="encrypted" v-model="encrypted" :rows="8" padded />
       <UButton
         block
         class="my-2"
