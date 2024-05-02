@@ -4,6 +4,7 @@ import JsonEditorVue from "json-editor-vue";
 import "vanilla-jsoneditor/themes/jse-theme-dark.css";
 import { Base64 } from "js-base64";
 import CryptoJS from "crypto-js";
+import { consola } from "consola";
 
 const colorMode = useColorMode();
 const colorModeButtonIcon = computed(() => {
@@ -35,10 +36,11 @@ const decryptKey = computed(() =>
 );
 
 const handleDecrypt = () => {
+  try {
   const params = ["content"];
-  console.log("encrypted", encrypted.value);
+    consola.info("encrypted", encrypted.value);
   const parsed = JSON.parse(encrypted.value);
-  console.log("parsed", parsed);
+    consola.info("parsed", parsed);
   params.forEach((param) => {
     let data = CryptoJS.enc.Base64.stringify(
       CryptoJS.enc.Hex.parse(parsed[param])
@@ -51,12 +53,16 @@ const handleDecrypt = () => {
     });
     parsed[param] = decrypted.toString(CryptoJS.enc.Utf8);
   });
-  console.log("typeof parsed.content", typeof parsed.content);
-  console.log("parsed.content", parsed.content);
+    consola.info("typeof parsed.content", typeof parsed.content);
+    consola.info("parsed.content", parsed.content);
   const lastIndex = parsed.content.lastIndexOf("}");
   parsed.content = JSON.parse(parsed.content.slice(0, lastIndex + 1));
-  console.log("updated parsed.content", parsed.content);
+    consola.info("updated parsed.content", parsed.content);
   decrypted.value = parsed;
+  } catch (error) {
+    window.alert("❌ Something went wrong! Please check console.");
+    consola.error(error);
+  }
 };
 </script>
 
