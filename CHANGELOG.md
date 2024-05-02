@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/ModyQyW/jvs-ui-decryptor/compare/v0.0.1...v0.0.2)
+
+### 🚀 Enhancements
+
+- Use consola and try catch block ([a20890b](https://github.com/ModyQyW/jvs-ui-decryptor/commit/a20890b))
+
+### 🩹 Fixes
+
+- Fix global styles ([d2c3a5e](https://github.com/ModyQyW/jvs-ui-decryptor/commit/d2c3a5e))
+- Styles ([3a328be](https://github.com/ModyQyW/jvs-ui-decryptor/commit/3a328be))
+
+### 🏡 Chore
+
+- Update deps ([ecd77c7](https://github.com/ModyQyW/jvs-ui-decryptor/commit/ecd77c7))
+
+### ❤️ Contributors
+
+- ModyQyW ([@ModyQyW](http://github.com/ModyQyW))
+
 ## v0.0.1
 
 
