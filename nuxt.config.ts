@@ -9,4 +9,5 @@ export default defineNuxtConfig({
   ui: {
     icons: ["heroicons", "simple-icons"],
   },
+  css: ["~/assets/global.css"],
 });
