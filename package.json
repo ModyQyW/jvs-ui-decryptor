@@ -13,19 +13,20 @@
   },
   "dependencies": {
     "@nuxt/ui": "^2.15.2",
+    "consola": "^3.2.3",
     "crypto-js": "^4.2.0",
     "js-base64": "^3.7.7",
-    "json-editor-vue": "^0.14.0",
+    "json-editor-vue": "^0.15.1",
     "nuxt": "^3.11.2",
-    "vue": "^3.4.23",
-    "vue-router": "^4.3.1"
+    "vue": "^3.4.26",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@iconify-json/heroicons": "^1.1.20",
-    "@iconify-json/simple-icons": "^1.1.99",
+    "@iconify-json/heroicons": "^1.1.21",
+    "@iconify-json/simple-icons": "^1.1.101",
     "@nuxtjs/device": "^3.1.1",
     "@types/crypto-js": "^4.2.2",
     "changelogen": "^0.5.5"
   },
-  "packageManager": "pnpm@9.0.2"
+  "packageManager": "pnpm@9.0.6"
 }
